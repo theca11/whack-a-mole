@@ -1,0 +1,1 @@
+Whac-a-mole plugin for Elgato Stream Deck
