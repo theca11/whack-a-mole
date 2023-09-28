@@ -1,0 +1,39 @@
+{
+	"name": "whack-a-mole-sdplugin",
+	"version": "1.0.0",
+	"description": "Whack-A-Mole game plugin for Stream Deck",
+	"scripts": {
+		"prepare-dev": "symlink-dir ./build/dev.theca11.whack-a-mole.sdPlugin %APPDATA%/Elgato/StreamDeck/Plugins/dev.theca11.whack-a-mole.sdPlugin",
+		"dev": "webpack --watch --mode=development",
+		"build": "webpack --mode=production",
+		"copy-previews": "npx cpy previews/*.png build/dev.theca11.whack-a-mole.sdPlugin/previews",
+		"package": "cd ./dist && npx trash dev.theca11.whack-a-mole.streamDeckPlugin && DistributionTool.exe -b -i ../build/dev.theca11.whack-a-mole.sdPlugin -o .",
+		"release": "npm run copy-previews && npm run package",
+		"lint": "eslint ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/theca11/whack-a-mole.git"
+	},
+	"author": "the_ca11",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/theca11/whack-a-mole/issues"
+	},
+	"homepage": "https://github.com/theca11/whack-a-mole#readme",
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^6.5.0",
+		"@typescript-eslint/parser": "^6.5.0",
+		"copy-webpack-plugin": "^11.0.0",
+		"cpy-cli": "^5.0.0",
+		"eslint": "^8.48.0",
+		"license-webpack-plugin": "^4.0.2",
+		"symlink-dir": "^5.1.1",
+		"terser-webpack-plugin": "^5.3.9",
+		"trash-cli": "^5.0.0",
+		"ts-loader": "^9.4.4",
+		"typescript": "^5.1.6",
+		"webpack": "^5.88.2",
+		"webpack-cli": "^5.1.4"
+	}
+}

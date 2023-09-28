@@ -6,5 +6,7 @@ __exclude
 .editorconfig
 node_modules/
 build/
-previews.psd
-dev.theca11.multiobs.streamDeckPlugin
+moles.svg
+dev.theca11.whack-a-mole.streamDeckPlugin
+previews/previews.psd
+src/assets/banner.svg
