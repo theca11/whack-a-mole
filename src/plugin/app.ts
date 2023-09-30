@@ -68,7 +68,7 @@ startAction.onWillDisappear((evtData: WillAppearData<unknown>) => {
 });
 
 startAction.onSinglePress(() => {
-	if (ready && !inProgress) startGame();
+	if (ready && !inProgress && tilesContexts.size > 0) startGame();
 });
 
 startAction.onLongPress(() => {
