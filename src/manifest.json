@@ -44,10 +44,14 @@
 			"DeviceType": 7
 		}
 	],
+	"Category": "Whack-A-Mole",
+	"CategoryIcon": "assets/category",
 	"Actions": [
 		{
 			"UUID": "dev.theca11.whack-a-mole.start",
 			"Name": "Start",
+			"Icon": "assets/start",
+			"Tooltip": "Start/cancel a whack-a-mole game",
 			"States": [
 				{
 					"Image": "assets/default_brown",
@@ -68,12 +72,40 @@
 			],
 			"DisableAutomaticStates": true,
 			"SupportedInMultiActions": false,
-			"UserTitleEnabled": false,
-			"VisibleInActionsList": false
+			"UserTitleEnabled": false
+		},
+		{
+			"UUID": "dev.theca11.whack-a-mole.timer",
+			"Name": "Difficulty/Timer",
+			"Icon": "assets/timer",
+			"Tooltip": "Set difficulty level and time mode",
+			"States": [
+				{
+					"Image": "assets/default_brown",
+					"TitleColor": "white",
+					"TitleAlignment": "middle",
+					"FontFamily": "Verdana",
+					"FontStyle": "bold",
+					"FontSize": "10"
+				},
+				{
+					"Image": "assets/default_green",
+					"TitleColor": "white",
+					"TitleAlignment": "middle",
+					"FontFamily": "Verdana",
+					"FontStyle": "bold",
+					"FontSize": "10"
+				}
+			],
+			"DisableAutomaticStates": true,
+			"SupportedInMultiActions": false,
+			"UserTitleEnabled": false
 		},
 		{
 			"UUID": "dev.theca11.whack-a-mole.score",
 			"Name": "Score",
+			"Icon": "assets/score",
+			"Tooltip": "Show last score/top score",
 			"States": [
 				{
 					"Image": "assets/default_brown",
@@ -94,38 +126,13 @@
 			],
 			"DisableAutomaticStates": true,
 			"SupportedInMultiActions": false,
-			"UserTitleEnabled": false,
-			"VisibleInActionsList": false
-		},
-		{
-			"UUID": "dev.theca11.whack-a-mole.timer",
-			"Name": "Timer",
-			"States": [
-				{
-					"Image": "assets/default_brown",
-					"TitleColor": "white",
-					"TitleAlignment": "middle",
-					"FontFamily": "Verdana",
-					"FontStyle": "bold",
-					"FontSize": "10"
-				},
-				{
-					"Image": "assets/default_green",
-					"TitleColor": "white",
-					"TitleAlignment": "middle",
-					"FontFamily": "Verdana",
-					"FontStyle": "bold",
-					"FontSize": "10"
-				}
-			],
-			"DisableAutomaticStates": true,
-			"SupportedInMultiActions": false,
-			"UserTitleEnabled": false,
-			"VisibleInActionsList": false
+			"UserTitleEnabled": false
 		},
 		{
 			"UUID": "dev.theca11.whack-a-mole.tile",
-			"Name": "Tile",
+			"Name": "Mole Tile",
+			"Icon": "assets/tile",
+			"Tooltip": "Game tile used by moles",
 			"States": [
 				{
 					"Image": "assets/hole"
@@ -142,8 +149,7 @@
 			],
 			"DisableAutomaticStates": true,
 			"SupportedInMultiActions": false,
-			"UserTitleEnabled": false,
-			"VisibleInActionsList": false
+			"UserTitleEnabled": false
 		}
 	]
 }
