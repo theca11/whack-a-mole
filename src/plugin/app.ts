@@ -59,7 +59,8 @@ $SD.onDidReceiveGlobalSettings(({ payload }: DidReceiveGlobalSettingsData<Partia
 // --- Start
 startAction.onWillAppear((evtData: WillAppearData<unknown>) => {
 	startContexts.add(evtData.context);
-	$SD.setTitle(evtData.context, 'START');
+	setStartTitle(evtData.context);
+	$SD.setState(evtData.context, !inProgress ? 0 : 1);
 });
 
 startAction.onWillDisappear((evtData: WillAppearData<unknown>) => {
@@ -82,6 +83,7 @@ startAction.onLongPress(() => {
 scoreAction.onWillAppear((evtData: WillAppearData<unknown>) => {
 	scoreContexts.add(evtData.context);
 	setScoreTitle(evtData.context);
+	$SD.setState(evtData.context, !inProgress ? 0 : 1);
 });
 
 scoreAction.onWillDisappear((evtData: WillAppearData<unknown>) => {
@@ -100,6 +102,7 @@ scoreAction.onSinglePress(() => {
 timerAction.onWillAppear((evtData: WillAppearData<unknown>) => {
 	timerContexts.add(evtData.context);
 	setTimerTitle(evtData.context);
+	$SD.setState(evtData.context, !inProgress ? 0 : 1);
 });
 
 timerAction.onWillDisappear((evtData: WillAppearData<unknown>) => {
@@ -134,6 +137,7 @@ timerAction.onLongPress(() => {
 // --- Tile
 tileAction.onWillAppear((evtData: WillAppearData<unknown>) => {
 	tilesContexts.add(evtData.context);
+	$SD.setState(evtData.context, 0);
 });
 
 tileAction.onWillDisappear((evtData: WillAppearData<unknown>) => {
@@ -197,7 +201,7 @@ function startGame() {
 	startContexts.forEach(ctx => $SD.setState(ctx, 1));
 	timerContexts.forEach(ctx => $SD.setState(ctx, 1));
 	scoreContexts.forEach(ctx => $SD.setState(ctx, 1));
-	startContexts.forEach(ctx => $SD.setTitle(ctx, 'WHACK!'));
+	startContexts.forEach(ctx => setStartTitle(ctx));
 	score = 0;
 	showTop = false;
 	scoreContexts.forEach(ctx => setScoreTitle(ctx));
@@ -220,7 +224,7 @@ function endGame() {
 	startContexts.forEach(ctx => $SD.setState(ctx, 0));
 	timerContexts.forEach(ctx => $SD.setState(ctx, 0));
 	scoreContexts.forEach(ctx => $SD.setState(ctx, 0));
-	startContexts.forEach(ctx => $SD.setTitle(ctx, 'GAME\nOVER'));
+	startContexts.forEach(ctx => setStartTitle(ctx));
 	const currentTopScore = settings.topScores[settings.level][settings.time];
 	if (score > currentTopScore) {
 		settings.topScores[settings.level][settings.time] = score;
@@ -228,9 +232,23 @@ function endGame() {
 	}
 	setTimeout(() => {
 		ready = true;
-		startContexts.forEach(ctx => $SD.setTitle(ctx, 'START'));
+		startContexts.forEach(ctx => setStartTitle(ctx));
 		timerContexts.forEach(ctx => setTimerTitle(ctx));
 	}, 2500);
+}
+
+function setStartTitle(context: string) {
+	if (!inProgress) {
+		if (ready) {
+			$SD.setTitle(context, 'START');
+		}
+		else {
+			$SD.setTitle(context, 'GAME\nOVER');
+		}
+	}
+	else {
+		$SD.setTitle(context, 'WHACK!');
+	}
 }
 
 function setScoreTitle(context: string) {
