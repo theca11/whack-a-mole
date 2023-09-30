@@ -3,6 +3,13 @@
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.0.1] - 2023-09-30
+
+### Fixed
+
+- Added actions to action list so the plugin can be uninstalled from there.
+- Properly set/reset actions state/title when they appear.
+
 ## [1.0.0] - 2023-09-28
 
 First release of Whack-A-Mole Stream Deck plugin, which lets you play the popular game.

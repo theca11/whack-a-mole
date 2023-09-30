@@ -3,7 +3,7 @@
 	"Name": "Whack-A-Mole",
 	"Description": "Whack the peeping moles before the time runs out and try to beat your score! Includes 3 predefined difficulty levels (easy/normal/hard) and a custom one that you can configure. Play limited-time games (5s/10s/20s/30s) or try the endless mode. Top scores for every level/time are saved so you can try to beat them",
 	"Author": "the_ca11",
-	"Version": "1.0.0",
+	"Version": "1.0.1",
 	"URL": "https://github.com/theca11/whack-a-mole#readme",
 	"Icon": "assets/plugin",
 	"CodePath": "plugin/app.html",
