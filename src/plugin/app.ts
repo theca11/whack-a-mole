@@ -266,7 +266,7 @@ function setTimerTitle(context: string) {
 		$SD.setTitle(context, `${levels[settings.level].toLocaleUpperCase()}\n\nEndless`);
 	}
 	else {
-		$SD.setTitle(context, `${levels[settings.level].toLocaleUpperCase()}\n\n${formatTime(time as number)}`);
+		$SD.setTitle(context, `${levels[settings.level].toLocaleUpperCase()}\n\n${formatTime(time)}`);
 	}
 }
 
