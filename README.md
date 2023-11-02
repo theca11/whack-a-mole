@@ -1,18 +1,12 @@
 <p align="center">
-  <img src="/.github/images/banner.png?sanitize=true" height="100">
+  <img src="/.github/images/banner.png?sanitize=true" height="100" />
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/github/package-json/v/theca11/whack-a-mole/master?label=%20&color=green" />
-  <a href="https://apps.elgato.com/plugins/dev.theca11.whack-a-mole">
-        <img src="https://img.shields.io/badge/Stream_Deck_store-gray?logo=elgato&logoColor=white&labelColor=1231ac&color=gray" alt="Stream Deck Store">
-  </a>
-  <a href="https://discord.gg/yFce5NEDak">
-        <img src="https://img.shields.io/badge/Discord-gray?logo=discord&logoColor=white&labelColor=6A7EC2&color=gray" alt="Discord Support">
-  </a>
-  <a href="https://ko-fi.com/the_ca11">
-        <img src="https://img.shields.io/badge/Ko--fi-gray?logo=kofi&logoColor=white&labelColor=red&color=gray" alt="Ko-fi donate">
-  </a>
+  <a href="https://marketplace.elgato.com/product/whack-a-mole-c322a2db-bcdb-4531-ac6c-28ec05a3372d"><img src="https://img.shields.io/badge/Elgato_Marketplace-gray?logo=elgato&logoColor=white&labelColor=1231ac&color=gray" alt="Elgato Marketplace" /></a>
+  <a href="https://discord.gg/yFce5NEDak"><img src="https://img.shields.io/badge/Discord-gray?logo=discord&logoColor=white&labelColor=6A7EC2&color=gray" alt="Discord Support" /></a>
+  <a href="https://ko-fi.com/the_ca11"><img src="https://img.shields.io/badge/Ko--fi-gray?logo=kofi&logoColor=white&labelColor=red&color=gray" alt="Ko-fi donate" /></a>
 </p>
 
 <hr/>
@@ -38,9 +32,9 @@ Top scores for every difficulty/mode are saved so you can try to beat them. You 
 
 ## Installation
 
-### Installation from Stream Deck store (recommended)
+### Installation from Elgato Marketplace (recommended)
 
-Go to the [Stream Deck store plugin page](https://apps.elgato.com/plugins/dev.theca11.whack-a-mole) and click the `Install` button. Stream Deck will prompt for installation confirmation.
+Go to the [Elgato Marketplace plugin page](https://marketplace.elgato.com/product/whack-a-mole-c322a2db-bcdb-4531-ac6c-28ec05a3372d) and click the `Get` button. Follow the steps to download the plugin.
 
 ### Installation from Github release
 
