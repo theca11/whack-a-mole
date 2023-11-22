@@ -1,11 +1,15 @@
 import { DidReceiveGlobalSettingsData, KeyDownData, WillAppearData } from './types';
 import { SDAction } from './SDAction';
 
+// -- Devices
+const devicesList: { [deviceId: string]: number } = {};
+
 // -- Actions and contexts caches
 const startAction = new SDAction('dev.theca11.whack-a-mole.start');
 const scoreAction = new SDAction('dev.theca11.whack-a-mole.score');
 const timerAction = new SDAction('dev.theca11.whack-a-mole.timer');
 const tileAction = new SDAction('dev.theca11.whack-a-mole.tile');
+const goAction = new SDAction('dev.theca11.whack-a-mole.go-profile');
 const startContexts = new Set<string>();
 const scoreContexts = new Set<string>();
 const timerContexts = new Set<string>();
@@ -22,7 +26,7 @@ const levelsConfig: Record<string, { min: number, max: number }> = {
 };
 
 // --  Default settings, later updated with saved global settings
-type Settings = { level: number, time: number, customMin: number, customMax: number, topScores: number[][]}
+type Settings = { level: number, time: number, customMin: number, customMax: number, topScores: number[][] }
 let settings: Settings = {
 	level: 1,
 	time: 1,
@@ -42,8 +46,11 @@ let showTop = false;	// whether to show last or top score
 
 
 // -- SD connection and global settings
-$SD.onConnected(() => {
+$SD.onConnected(({ appInfo }: any) => {
 	console.log('Stream Deck connected');
+	for (const device of appInfo.devices) {
+		devicesList[device.id] = device.type;
+	}
 	$SD.getGlobalSettings();
 });
 
@@ -71,10 +78,13 @@ startAction.onSinglePress(() => {
 	if (ready && !inProgress && tilesContexts.size > 0) startGame();
 });
 
-startAction.onLongPress(() => {
+startAction.onLongPress((evtData: KeyDownData<unknown>) => {
 	if (inProgress) {
 		remainingTime = 0;
 		endGame();
+	}
+	else if (ready) {
+		$SD.switchToProfile(evtData.device);
 	}
 });
 // ---
@@ -155,6 +165,36 @@ tileAction.onSinglePress((evtData: KeyDownData<unknown>) => {
 			remainingTime += getMoleMultiplier(state);
 			timerContexts.forEach(ctx => setTimerTitle(ctx));
 		}
+	}
+});
+// ---
+
+// --- Go to profile
+function getProfilePath(deviceType: number) {
+	switch (deviceType) {
+		case 0:
+		case 3:
+			return 'profiles/SD';
+		case 1:
+			return 'profiles/SDMini';
+		case 2:
+			return 'profiles/SDXL';
+		case 7:
+			return 'profiles/SDPlus';
+		default:
+			return '';
+	}
+}
+
+goAction.onKeyDown((evtData: KeyDownData<unknown>) => {
+	const { device, context } = evtData;
+	const profile = getProfilePath(devicesList[device]);
+	if (profile) {
+		$SD.switchToProfile(device, profile);
+	}
+	else {	// set temporal unsupported message
+		$SD.setTitle(context, 'DEVICE\nNOT\nSUPPORTED');
+		setTimeout(() => $SD.setTitle(context, ''), 2000);
 	}
 });
 // ---
@@ -240,7 +280,7 @@ function endGame() {
 function setStartTitle(context: string) {
 	if (!inProgress) {
 		if (ready) {
-			$SD.setTitle(context, 'START');
+			$SD.setTitle(context, 'START\n-\nHold\nto EXIT');
 		}
 		else {
 			$SD.setTitle(context, 'GAME\nOVER');

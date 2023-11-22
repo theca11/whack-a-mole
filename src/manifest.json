@@ -72,7 +72,8 @@
 			],
 			"DisableAutomaticStates": true,
 			"SupportedInMultiActions": false,
-			"UserTitleEnabled": false
+			"UserTitleEnabled": false,
+			"VisibleInActionsList": false
 		},
 		{
 			"UUID": "dev.theca11.whack-a-mole.timer",
@@ -99,7 +100,8 @@
 			],
 			"DisableAutomaticStates": true,
 			"SupportedInMultiActions": false,
-			"UserTitleEnabled": false
+			"UserTitleEnabled": false,
+			"VisibleInActionsList": false
 		},
 		{
 			"UUID": "dev.theca11.whack-a-mole.score",
@@ -126,7 +128,8 @@
 			],
 			"DisableAutomaticStates": true,
 			"SupportedInMultiActions": false,
-			"UserTitleEnabled": false
+			"UserTitleEnabled": false,
+			"VisibleInActionsList": false
 		},
 		{
 			"UUID": "dev.theca11.whack-a-mole.tile",
@@ -149,7 +152,25 @@
 			],
 			"DisableAutomaticStates": true,
 			"SupportedInMultiActions": false,
-			"UserTitleEnabled": false
+			"UserTitleEnabled": false,
+			"VisibleInActionsList": false
+		},
+		{
+			"UUID": "dev.theca11.whack-a-mole.go-profile",
+			"Name": "Whack-a-mole",
+			"Icon": "assets/tile",
+			"Tooltip": "Go to whack-a-mole game",
+			"States": [
+				{
+					"Image": "assets/mole1",
+					"TitleColor": "white",
+					"TitleAlignment": "middle",
+					"FontFamily": "Verdana",
+					"FontStyle": "bold",
+					"FontSize": "7"
+				}
+			],
+			"SupportedInMultiActions": false
 		}
 	]
 }
