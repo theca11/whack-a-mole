@@ -1,6 +1,6 @@
 {
 	"name": "whack-a-mole-sdplugin",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "Whack-A-Mole game plugin for Stream Deck",
 	"scripts": {
 		"prepare-dev": "symlink-dir ./build/dev.theca11.whack-a-mole.sdPlugin %APPDATA%/Elgato/StreamDeck/Plugins/dev.theca11.whack-a-mole.sdPlugin",

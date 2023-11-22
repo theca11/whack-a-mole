@@ -2,13 +2,22 @@
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2023-11-22
+
+### Added
+
+-   Added action to switch to the game profile. If you use this action, you can then exit the game by holding the Start/Exit button, which will return you to the previous profile
+
+### Changed
+
+-   Start/Timer/Score/Tile actions no longer visible in actions list
 
 ## [1.0.1] - 2023-09-30
 
 ### Fixed
 
-- Added actions to action list so the plugin can be uninstalled from there.
-- Properly set/reset actions state/title when they appear.
+-   Added actions to action list so the plugin can be uninstalled from there.
+-   Properly set/reset actions state/title when they appear.
 
 ## [1.0.0] - 2023-09-28
 
@@ -19,10 +28,11 @@ The goal is to whack as many moles as possible before the time runs out.
 There are 3 types of moles: regular moles add 1 to the score, shy moles add 2 since they're harder to spot, and miner moles substract 1 because they have protective helmets! In endless mode the same applies when adding seconds to the timer.
 
 **How to**
-- **Whack**: press the key with the mole to whack it
-- **Start**: press to start game, long press to cancel an ongoing game
-- **Set Difficulty/timer**: press to change game length (5s/10s/20s/30s/endless), long press to change game difficulty (easy/normal/hard/custom)
-- **Show Score**: press to toggle between last and top score for the current difficulty/length
+
+-   **Whack**: press the key with the mole to whack it
+-   **Start**: press to start game, long press to cancel an ongoing game
+-   **Set Difficulty/timer**: press to change game length (5s/10s/20s/30s/endless), long press to change game difficulty (easy/normal/hard/custom)
+-   **Show Score**: press to toggle between last and top score for the current difficulty/length
 
 **Custom Difficulty Level**
 
